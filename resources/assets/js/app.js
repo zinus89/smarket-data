@@ -6,8 +6,10 @@
  */
 
 require('./bootstrap');
+window.StatsUtil = require('./utils/StatsUtil.js');
 
 window.Vue = require('vue');
+Vue.config.devtools = true;
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -16,6 +18,9 @@ window.Vue = require('vue');
  */
 
 Vue.component('example', require('./components/Example.vue'));
+Vue.component('upload', require('./components/UploadSmarket.vue'));
+Vue.component('bet-type-list', require('./components/Stats/BetType/BetTypeList.vue'));
+Vue.component('odds-list', require('./components/Stats/Odds/OddsList.vue'));
 
 const app = new Vue({
     el: '#app'

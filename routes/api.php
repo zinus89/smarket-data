@@ -13,6 +13,14 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->post('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/upload-csv', 'UploadController@uploadCsv');
+Route::get('/upload/sync-external-stats', 'UploadController@syncExternalStats');
+
+Route::get('/stats/bet-types', 'StatsController@getByBetType');
+Route::get('/stats/markets', 'StatsController@getByMarket');
+
+
